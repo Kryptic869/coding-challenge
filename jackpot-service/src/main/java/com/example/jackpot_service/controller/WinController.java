@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.jackpot_service.dto.win.WinListResponse;
 import com.example.jackpot_service.service.WinService;
 
+import java.time.Instant;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,8 +23,10 @@ public class WinController {
 
     @GetMapping
     public List<WinListResponse> getWins(
-            @RequestParam(defaultValue = "10") int limit) {
-        return winService.getWins(limit)
+            @RequestParam(defaultValue = "10") int limit,
+            @RequestParam(required = false) Instant from,
+            @RequestParam(required = false) Instant to) {
+        return winService.getWins(limit, from, to)
                 .stream()
                 .map(win -> new WinListResponse(
                         win.getTimestamp(),
@@ -31,5 +34,4 @@ public class WinController {
                         win.getAmount()))
                 .toList();
     }
-
 }

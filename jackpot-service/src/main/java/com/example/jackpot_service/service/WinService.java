@@ -1,5 +1,6 @@
 package com.example.jackpot_service.service;
 
+import java.time.Instant;
 import java.util.List;
 
 import org.springframework.data.domain.PageRequest;
@@ -17,9 +18,11 @@ public class WinService {
     }
 
     // Getting recent wins:
-    public List<Win> getWins(int limit) {
+    public List<Win> getWins(int limit, Instant from, Instant to) {
         return winRepository
                 .findAllByOrderByTimestampDesc(
+                        from,
+                        to,
                         PageRequest.of(0, limit))
                 .getContent();
     }
