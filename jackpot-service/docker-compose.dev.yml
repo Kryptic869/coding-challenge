@@ -14,15 +14,13 @@ services:
       - pgdata:/var/lib/postgresql/data
 
   api:
-    image: kryptic869/jackpot-service:latest
+    build: .
     ports:
       - "8080:8080"
     depends_on:
       - db
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/jackpot
-      SPRING_DATASOURCE_USERNAME: jackpot
-      SPRING_DATASOURCE_PASSWORD: jackpotpassword
+      SPRING_PROFILES_ACTIVE: docker
 
 volumes:
   pgdata:
