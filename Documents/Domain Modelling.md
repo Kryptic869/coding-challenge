@@ -4,7 +4,7 @@
 
 Jackpot
 
-Bet 
+Bet
 
 Win
 
@@ -41,6 +41,8 @@ Win
 
 
 
+
+
 **API design (Endpoints)**
 
 |Action|Method|Endpoint|
@@ -54,7 +56,7 @@ Win
 
 
 
-**Business Logic Flow**
+**Business Logic Flow (BetService.java)**
 
 Making a bet flow:
 
@@ -86,17 +88,13 @@ Making a bet flow:
 
 **Data Transfer Object (DTO)**
 
-
+The public contract for the API. In DTOs, we define what the API accepts and returns, whilst also decouples the API from the database model (defined in the Model folder). 
 
 
 
 
 
 Why PostgreSQL is a good choice
-
-
-
-
 
 * ACID-compliant (important for bets \& wins)
 * Widely used in production
@@ -110,7 +108,7 @@ Why PostgreSQL is a good choice
 
 Maven
 
-Maven is a build and dependency management tool for Java projects. 
+Maven is a build and dependency management tool for Java projects.
 
 
 
@@ -132,31 +130,15 @@ Why NOT Ant?
 
 
 
-Why Maven is the best choice here
+Why Maven is the best choice
+
+* Industry standard
+* Declarative and predictable
+* Excellent Spring Boot support
+* Easy for reviewers to build
+* Perfect for Docker pipelines
 
 
 
-✔ Industry standard
-
-✔ Declarative and predictable
-
-✔ Excellent Spring Boot support
-
-✔ Easy for reviewers to build
-
-✔ Perfect for Docker pipelines
-
-
-
-👉 Key phrase to use:
-
-“Maven was chosen for its convention-over-configuration approach and strong integration with Spring Boot.”
-
-
-
-
-
-
-
-
+Maven was chosen for its convention-over-configuration approach and strong integration with Spring Boot.
 

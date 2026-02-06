@@ -16,6 +16,7 @@ public class WinService {
         this.winRepository = winRepository;
     }
 
+    // Getting recent wins:
     public List<Win> getWins(int limit) {
         return winRepository
                 .findAllByOrderByTimestampDesc(

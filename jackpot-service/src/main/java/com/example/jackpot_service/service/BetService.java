@@ -28,12 +28,14 @@ public class BetService {
         this.winRepository = winRepository;
     }
 
+    // Making a bet flow:
     public BetResultResponse placeBet(Long jackpotId, String playerAlias, BigDecimal betAmount) {
 
+        // 1. Validating the jackpot exists
         Jackpot jackpot = jackpotRepository.findById(jackpotId)
                 .orElseThrow(() -> new IllegalArgumentException("Jackpot does not exist."));
 
-        // 1. Saving the bet
+        // 2. Saving the bet
         Bet bet = new Bet();
         bet.setJackpot(jackpot);
         bet.setPlayerAlias(playerAlias);
@@ -41,15 +43,16 @@ public class BetService {
         bet.setTimestamp(Instant.now());
         betRepository.save(bet);
 
-        // 2. Adding bet amount to jackpot
+        // 3. Adding bet amount to jackpot
         jackpot.setCurrentSize(jackpot.getCurrentSize().add(betAmount));
 
         BigDecimal winAmount = BigDecimal.ZERO;
 
-        // 3. Determining win or loss
+        // 4. Determining win or loss by generating a random number and comparing it to
+        // the jackpot's win probability
         if (Math.random() < jackpot.getWinProbability()) {
 
-            // Player wins
+            // 5. Player wins
             winAmount = jackpot.getCurrentSize();
 
             // Creating Win record
@@ -66,6 +69,7 @@ public class BetService {
             jackpot.setLastWinTimestamp(Instant.now());
         }
 
+        // 6. Saving and updating jackpot record
         jackpotRepository.save(jackpot);
 
         return new BetResultResponse(
