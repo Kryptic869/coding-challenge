@@ -142,3 +142,42 @@ Why Maven is the best choice
 
 Maven was chosen for its convention-over-configuration approach and strong integration with Spring Boot.
 
+
+The Maven project was created via the VSC extension. 
+
+
+
+##### Commands:
+
+
+
+###### To build the application via maven:
+
+./mvnw clean package
+
+
+
+###### To test via maven:
+
+./mvnw clean test
+
+
+To build an image:
+---
+
+docker build -t kryptic869/jackpot-service:latest .
+
+
+
+###### To push the image:
+
+docker push kryptic869/jackpot-service:latest
+
+
+
+
+
+
+
+
+
