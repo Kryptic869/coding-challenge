@@ -77,31 +77,45 @@ http://localhost:8080/swagger-ui.html
 
 This page allows you to explore and test all API endpoints interactively via Swagger UI, which was added as a dependency in pom.xml.
 
-## Example API Calls
+### Health and Monitoring
+
+The services exposes healt and metric endpoints using Spring Boot Actuator:
+- `GET /actuator/health`
+- `GET /actuator/metrics`
+
+### Example API Calls
 
 Below you will find an API call example for each API endpoint.
-The [Listing Wins](#listing-wins) section also shows the `/wins` endpoint with different types of filtering. 
+The [Listing Wins](#listing-wins) section also shows the `/wins` endpoint with different types of limiting and filtering. 
+These can be of any combination due to how `WinService.java` was created. This was discovered during manual testing. 
 
-### Creating a Jackpot
+#### Creating a Jackpot
 <img width="993" height="653" alt="Screenshot 2026-02-07 152843" src="https://github.com/user-attachments/assets/1d7c67f7-5543-4552-bf53-5cd1349a800a" />
 
-### Listing all Jackpots
+#### Listing all Jackpots
 <img width="1055" height="802" alt="Screenshot 2026-02-07 153659" src="https://github.com/user-attachments/assets/80580b63-b413-47fd-95f5-1321f19618aa" />
 
-### Placing a Bet on a specific jackpot
+#### Placing a Bet on a specific jackpot
 <img width="1055" height="575" alt="Screenshot 2026-02-07 153759" src="https://github.com/user-attachments/assets/25e2fe95-c937-446f-8a87-c0fdb9d8a512" />
 
-### Listing Wins
+#### Listing Wins
 <img width="1129" height="811" alt="Screenshot 2026-02-07 153838" src="https://github.com/user-attachments/assets/9a2c5614-fdd3-4548-9401-13045cc38ad4" />
 
-#### Listing Wins (With limiting)
+##### Listing Wins (With Limiting)
 <img width="1169" height="581" alt="image" src="https://github.com/user-attachments/assets/6a9ecfd7-f783-4296-bd3e-2d7029ae9100" />
 
-#### Listing Wins (With filtering [from])
+##### Listing Wins (With Filtering [from])
 <img width="1171" height="600" alt="image" src="https://github.com/user-attachments/assets/a7619664-89b8-44a3-9e57-c6faca9618b5" />
 
-#### Listing Wins (With filtering [to])
+##### Listing Wins (With Filtering [to])
 <img width="1176" height="623" alt="image" src="https://github.com/user-attachments/assets/f2d1b331-2042-4d1c-bb79-b9aa24157f88" />
+
+##### Listing Wins (With Limiting and Filtering [to])
+<img width="1285" height="542" alt="image" src="https://github.com/user-attachments/assets/79e2c177-6832-43fe-8068-85b666b3b4eb" />
+
+#### Health & Monitoring
+<img width="523" height="470" alt="image" src="https://github.com/user-attachments/assets/423849ba-941a-43fa-84c0-1562d5b81162" />
+<img width="526" height="833" alt="image" src="https://github.com/user-attachments/assets/f9555778-d157-483a-a91c-834c846b9e4c" />
 
 ## Persistence
 
