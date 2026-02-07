@@ -61,7 +61,7 @@ docker pull kryptic869/jackpot-service:latest
 
 ### Running using Docker Compose
 
-The 'docker-compose.yml' file can be used directly with the prebuilt image via the command:
+The `docker-compose.yml` file can be used directly with the prebuilt image via the command:
 
 ```bash
 docker compose up
@@ -75,17 +75,33 @@ Once the application is up and running, the OpenAPI documentation is available a
 
 http://localhost:8080/swagger-ui.html
 
-This page allows you to explore and test all API endpoints interactively via Swagger UI which was added as a dependency in pom.xml.
+This page allows you to explore and test all API endpoints interactively via Swagger UI, which was added as a dependency in pom.xml.
 
 ## Example API Calls
 
 Below you will find an API call example for each API endpoint.
+The [Listing Wins](#listing-wins) section also shows the `/wins` endpoint with different types of filtering. 
 
 ### Creating a Jackpot
+<img width="993" height="653" alt="Screenshot 2026-02-07 152843" src="https://github.com/user-attachments/assets/1d7c67f7-5543-4552-bf53-5cd1349a800a" />
 
-### Placing a Bet
+### Listing all Jackpots
+<img width="1055" height="802" alt="Screenshot 2026-02-07 153659" src="https://github.com/user-attachments/assets/80580b63-b413-47fd-95f5-1321f19618aa" />
+
+### Placing a Bet on a specific jackpot
+<img width="1055" height="575" alt="Screenshot 2026-02-07 153759" src="https://github.com/user-attachments/assets/25e2fe95-c937-446f-8a87-c0fdb9d8a512" />
 
 ### Listing Wins
+<img width="1129" height="811" alt="Screenshot 2026-02-07 153838" src="https://github.com/user-attachments/assets/9a2c5614-fdd3-4548-9401-13045cc38ad4" />
+
+#### Listing Wins (With limiting)
+<img width="1169" height="581" alt="image" src="https://github.com/user-attachments/assets/6a9ecfd7-f783-4296-bd3e-2d7029ae9100" />
+
+#### Listing Wins (With filtering [from])
+<img width="1171" height="600" alt="image" src="https://github.com/user-attachments/assets/a7619664-89b8-44a3-9e57-c6faca9618b5" />
+
+#### Listing Wins (With filtering [to])
+<img width="1176" height="623" alt="image" src="https://github.com/user-attachments/assets/f2d1b331-2042-4d1c-bb79-b9aa24157f88" />
 
 ## Persistence
 
@@ -94,5 +110,5 @@ The application uses PostgreSQL running in a Docker container. This means that d
 ## Extra Notes and Assumptions
 
 - Win probability is evaluated per bet.
-- Monetary values are handled using 'BigDecimal'.
+- Monetary values are handled using `BigDecimal`.
 - For simplicity, authentication and authorisation are not implemented. This means that users (players) can currently also create jackpots, which in the real world would not make sense.
