@@ -14,7 +14,17 @@ public interface WinRepository extends JpaRepository<Win, Long> {
     // pagination, alongside filtering capabilities (to and from).
     // Pagination is used to limit the number of results returned (Providing
     // limiting)
-    Page<Win> findAllByOrderByTimestampDesc(
+    Page<Win> findAllByOrderByTimestampDesc(Pageable pageable);
+
+    Page<Win> findByTimestampGreaterThanEqualOrderByTimestampDesc(
+            Instant from,
+            Pageable pageable);
+
+    Page<Win> findByTimestampLessThanEqualOrderByTimestampDesc(
+            Instant to,
+            Pageable pageable);
+
+    Page<Win> findByTimestampBetweenOrderByTimestampDesc(
             Instant from,
             Instant to,
             Pageable pageable);
