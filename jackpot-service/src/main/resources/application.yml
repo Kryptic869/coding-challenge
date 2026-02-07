@@ -12,5 +12,11 @@ spring:
       hibernate:
         format_sql: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
 server:
   port: 8080
